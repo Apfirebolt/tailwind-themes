@@ -20,3 +20,30 @@ input {
     left: -100%;
     transition: left 0.3s ease-in;
 }
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+
+  .hoverable {
+    position: static;
+  }
+
+  .hoverable:hover .mega-menu {
+   opacity: 1;
+   transition: all 0.5s ease-in;
+  }
+
+  .mega-menu {
+    opacity: 0;
+    transition: all 0.5s ease-in;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    text-align: left;
+    width: 50%;
+  }
