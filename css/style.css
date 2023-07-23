@@ -1,0 +1,22 @@
+body {
+    font-family: 'Lato', sans-serif;
+    // Css reset
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Input green text
+input {
+    color: #00ff00;
+}
+
+.opened {
+    left: 0;
+    transition: left 0.3s ease-in;
+}
+
+.closed {
+    left: -100%;
+    transition: left 0.3s ease-in;
+}

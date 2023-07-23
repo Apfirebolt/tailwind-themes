@@ -1,0 +1,692 @@
+<!-- A simple tailwind css template -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Tailwind CSS Template</title>
+    <!-- CDN link tailwind css -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- CDN link google font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    
+    <!-- Link style css/style.css -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Jquery 3 CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Animate on scroll -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+
+<body class="bg-gray-100">
+    <!-- Red Navbar in Tailwind CSS -->
+
+    <nav class="bg-red-500 py-4 px-4">
+        <div class="md:flex md:items-center md:justify-between">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-white">
+                    Brand
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="flex md:hidden">
+                    <button type="button"
+                        class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600"
+                        aria-label="toggle menu">
+                        <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                            <path fill-rule="evenodd"
+                                d="M4 6h16a1 1 0 010 2H4a1 1 0 010-2zm0 5h16a1 1 0 010 2H4a1 1 0 010-2zm0
+                                5h16a1 1 0 010 2H4a1 1 0 010-2z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+            <div class="hidden -mx-4 md:flex md:items-center">
+                <a href="#"
+                    class="block mx-4 mt-2 md:mt-0 text-white hover:text-red-200 font-semibold">Home</a>
+                <a href="#"
+                    class="block mx-4 mt-2 md:mt-0 text-white hover:text-red-200 font-semibold">About</a>
+                <a href="#"
+                    class="block mx-4 mt-2 md:mt-0 text-white hover:text-red-200 font-semibold">Contact</a>
+                <!-- Nested dropdown -->
+
+                <div class="relative">
+                    <!-- Dropdown toggle button -->
+                    <button type="button"
+                        id="menu-button"
+                        class="inline-flex items-center justify-center mt-2 mx-4 md:mt-0 text-white hover:text-red-200 font-semibold focus:outline-none"
+                        aria-expanded="false">
+                        <span>Dropdown</span>
+                        <svg class="h-4 w-4 fill-current text-white" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M6.555 8.445a1 1 0 010-1.414l3-3a1 1 0 011.414
+                                0l3 3a1 1 0 11-1.414 1.414L10
+                                7.414l-2.445 2.445a1 1 0 01-1.414
+                                0z">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown menu -->
+                    <div class="dropdown-menu hidden absolute right-0 mt-2 w-40 bg-white rounded-md overflow-hidden shadow-xl z-10">
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-500 hover:text-white">Link
+                            1</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-500 hover:text-white">Link
+                            2</a>
+                        <a href="#"
+                            class="block px-4 py-2 text-sm text-gray-700 hover:bg-red-500 hover:text-white">Link
+                            3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div
+      class="sidebar fixed z-40 top-0 bottom-0 closed p-2 w-[300px] bg-gray-900"
+    >
+      <div class="text-gray-100 text-xl">
+        <div class="p-2.5 mt-1 flex items-center">
+          <i class="bi bi-app-indicator px-2 py-1 rounded-md bg-blue-600"></i>
+          <h1 class="font-bold text-gray-200 text-[15px] ml-3">TailwindCSS</h1>
+          <i
+            class="bi bi-x cursor-pointer ml-28 lg:hidden"
+            onclick="openSidebar()"
+          ></i>
+        </div>
+        <div class="my-2 bg-gray-600 h-[1px]"></div>
+      </div>
+      <div
+        class="p-2.5 flex items-center rounded-md px-4 duration-300 cursor-pointer bg-gray-700 text-white"
+      >
+        <i class="bi bi-search text-sm"></i>
+        <input
+          type="text"
+          placeholder="Search"
+          class="text-[15px] ml-4 w-full bg-transparent focus:outline-none"
+        />
+      </div>
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+      >
+        <i class="bi bi-house-door-fill"></i>
+        <span class="text-[15px] ml-4 text-gray-200 font-bold">Home</span>
+      </div>
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+      >
+        <i class="bi bi-bookmark-fill"></i>
+        <span class="text-[15px] ml-4 text-gray-200 font-bold">Bookmark</span>
+      </div>
+      <div class="my-4 bg-gray-600 h-[1px]"></div>
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+        onclick="dropdown()"
+      >
+        <i class="bi bi-chat-left-text-fill"></i>
+        <div class="flex justify-between w-full items-center">
+          <span class="text-[15px] ml-4 text-gray-200 font-bold">Chatbox</span>
+          <span class="text-sm rotate-180" id="arrow">
+            <i class="bi bi-chevron-down"></i>
+          </span>
+        </div>
+      </div>
+      <div
+        class="text-left text-sm mt-2 w-4/5 mx-auto text-gray-200 font-bold"
+        id="submenu"
+      >
+        <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+          Social
+        </h1>
+        <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+          Personal
+        </h1>
+        <h1 class="cursor-pointer p-2 hover:bg-blue-600 rounded-md mt-1">
+          Friends
+        </h1>
+      </div>
+      <div
+        class="p-2.5 mt-3 flex items-center rounded-md px-4 duration-300 cursor-pointer hover:bg-blue-600 text-white"
+      >
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span class="text-[15px] ml-4 text-gray-200 font-bold">Logout</span>
+      </div>
+    </div>
+
+
+    <div class="container mx-auto">
+        <div class="grid grid-cols-3 gap-4">
+            <!-- left side -->
+            <div class="col-span-1 bg-white rounded-lg shadow-md p-4">
+                <h1 class="text-2xl font-bold text-gray-700 mb-4">Left Side</h1>
+                <div class="flex flex-col">
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 1</a>
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 2</a>
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 3</a>
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 4</a>
+                    <button class="px-2 py-3 bg-green-400" id="openSidebar">
+                        Click Dock
+                    </button>
+                </div>
+            </div>
+
+            <!-- middle -->
+            <div class="col-span-2 bg-white rounded-lg shadow-md p-4">
+                <h1 class="text-2xl font-bold text-gray-700 mb-4">Middle</h1>
+                <div class="flex flex-col">
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 1</a>
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 2</a>
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 3</a>
+                    <a href="#" class="text-gray-700 mb-2 hover:text-gray-900 hover:underline">Link 4</a>
+                </div>
+            </div>
+
+            <!-- right side -->
+            <div class="col-span-1 bg-white rounded-lg shadow-md p-4">
+                <h1 class="text-2xl font-bold text-gray-700 mb-4">Right Side</h1>
+                <div
+                    class="flex flex-col justify-center items-center bg-gray-200 rounded-lg shadow-md text-gray-700 h-64">
+                    <h1 class="text-2xl font-bold text-gray-700 mb-4">Ad</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pricing section in Tailwind CSS -->
+    <div class="bg-gray-100 py-6">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Pricing</h2>
+            <div class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4">
+                <!-- Pricing card -->
+                <div class="w-full sm:w-1/3 sm:mx-2 md:mx-0">
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Basic</h3>
+                        <div class="text-center mb-8">
+                            <span class="text-5xl font-bold text-gray-800">$9</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                        <ul class="text-sm">
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>Optimized for 1 website
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>100 GB Bandwidth
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>Free SSL Certificate
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>15 GB Storage
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-times mr-2 text-gray-700"></i>WordPress Integration
+                            </li>
+                        </ul>
+                        <button
+                            class="block w-full bg-gray-800 hover:bg-gray-900 transition-all duration-200 text-white font-semibold text-center rounded-lg px-6 py-3 mt-6">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Pricing card -->
+                <div class="w-full sm:w-1/3 sm:mx-2 md:mx-0 mt-8 sm:mt-0">
+                    <div class="bg-white rounded-lg shadow-md p-8">
+                        <h3 class="text-xl font-bold text-center text-gray-800 mb-3">Standard</h3>
+                        <div class="text-center mb-8">
+                            <span class="text-5xl font-bold text-gray-800">$19</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                        <ul class="text-sm">
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>Optimized for 3 website
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>250 GB Bandwidth
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>Free SSL Certificate
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>25 GB Storage
+                            </li>
+                            <li class="mb-3">
+                                <i class="fas fa-check mr-2 text-gray-700"></i>WordPress Integration
+                            </li>
+                        </ul>
+                        <button
+                            class="block w-full bg-gray-800 hover:bg-gray-900 transition-all duration-200 text-white font-semibold text-center rounded-lg px-6 py-3 mt-6">
+                            Buy Now
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Gallery section in Tailwind CSS -->
+
+    <div class="bg-gray-100 py-6">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Gallery</h2>
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+                    <img src="https://images.unsplash.com/photo-1602594071549-7c1d7d3f7f9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                        alt="" class="rounded-lg shadow-md">
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+                    <img src="https://images.unsplash.com/photo-1602594071549-7c1d7d3f7f9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                        alt="" class="rounded-lg shadow-md">
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+                    <img src="https://images.unsplash.com/photo-1602594071549-7c1d7d3f7f9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                        alt="" class="rounded-lg shadow-md">
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+                    <img src="https://images.unsplash.com/photo-1602594071549-7c1d7d3f7f9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                        alt="" class="rounded-lg shadow-md">
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-
+                8">
+                    <img src="https://images.unsplash.com/photo-1602594071549-7c1d7d3f7f9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                        alt="" class="rounded-lg shadow-md">
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+                    <img src="https://images.unsplash.com/photo-1602594071549-7c1d7d3f7f9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                        alt="" class="rounded-lg shadow-md">
+                </div>
+                <div class="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 px-4 mb-8">
+                    <img src="https://images.unsplash.com/photo-1602594071549-7c1d7d3f7f9f?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                        alt="" class="rounded-lg shadow-md">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Testimonial section in Tailwind CSS -->
+    <div class="bg-white py-12" data-aos="fade-up">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center text-center mb-12">
+                <div class="w-full lg:w-6/12 px-4">
+                    <h2 class="text-4xl font-semibold">Here are our heroes</h2>
+                    <p class="text-lg leading-relaxed m-4 text-gray-600">
+                        According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist,
+                        puts the potentially record maximum.
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-wrap">
+                <div class="w-full md:w-4/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+                    <div class="px-6">
+                        <img alt="..." src="https://dummyimage.com/600x300/edf2f7/8693ac.jpg"
+                            class="shadow-lg rounded-full mx-auto max-w-120-px">
+                        <div class="pt-6 text-center">
+                            <h5 class="text-xl font-bold">Ryan Tompson</h5>
+                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                                Web Developer
+                            </p>
+                            <div class="mt-6">
+                                <button
+                                    class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-twitter"></i></button><button
+                                    class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-facebook-f"></i></button><button
+                                    class="bg-pink-500 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-dribbble"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-4/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+                    <div class="px-6">
+                        <img alt="..." src="https://dummyimage.com/600x300/edf2f7/8693ac.jpg"
+                            class="shadow-lg rounded-full mx-auto max-w-120-px">
+                        <div class="pt-6 text-center">
+                            <h5 class="text-xl font-bold">Romina Hadid</h5>
+                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                                Marketing Specialist
+                            </p>
+                            <div class="mt-6">
+                                <button
+                                    class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-google"></i></button><button
+                                    class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-facebook-f"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-4/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+                    <div class="px-6">
+                        <img alt="..." src="https://dummyimage.com/600x300/edf2f7/8693ac.jpg"
+                            class="shadow-lg rounded-full mx-auto max-w-120-px">
+                        <div class="pt-6 text-center">
+                            <h5 class="text-xl font-bold">Romina Hadid</h5>
+                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                                Marketing Specialist
+                            </p>
+                            <div class="mt-6">
+                                <button
+                                    class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-google"></i></button><button
+                                    class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-facebook-f"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-4/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+                    <div class="px-6">
+                        <img alt="..." src="https://dummyimage.com/600x300/edf2f7/8693ac.jpg"
+                            class="shadow-lg rounded-full mx-auto max-w-120-px">
+                        <div class="pt-6 text-center">
+                            <h5 class="text-xl font-bold">Romina Hadid</h5>
+                            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                                Marketing Specialist
+                            </p>
+                            <div class="mt-6">
+                                <button
+                                    class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-google"></i></button><button
+                                    class="bg-blue-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                                    type="button">
+                                    <i class="fab fa-facebook-f"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact section in Tailwind CSS -->
+    <div class="bg-gray-100 py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap justify-center text-center mb-12">
+                <div class="w-full lg:w-6/12 px-4">
+                    <h2 class="text-4xl font-semibold">Here are our heroes</h2>
+                    <p class="text-lg leading-relaxed m-4 text-gray-600">
+                        According to the National Oceanic and Atmospheric Administration, Ted, Scambos, NSIDClead scentist,
+                        puts the potentially record maximum.
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-wrap">
+                <div class="w-full lg:w-6/12 px-4">
+                    <div
+                        class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-gray-300">
+                        <div class="flex-auto p-5 lg:p-10">
+                            <h4 class="text-2xl font-semibold">Want to work with us?</h4>
+                            <p class="leading-relaxed mt-1 mb-4 text-gray-600">
+                                Complete this form and we will get back to you in 24 hours.
+                            </p>
+                            <div class="relative w-full mb-3 mt-8">
+                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                    for="full-name">Full
+                                    Name</label><input type="text" class="px-3 py-3 placeholder-gray-400 text-gray-700
+                                    bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline w-full"
+                                    placeholder="Full Name" style="transition: all 0.15s ease 0s;" />
+                            </div>
+                            <div class="relative w-full mb-3">
+                                <label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                    for="email">Email</label><input type="email" class="px-3 py-3 placeholder-gray-400
+                                    text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:shadow-outline
+                                    w-full" placeholder="Email" style="transition: all 0.15s ease 0s;" />
+                            </div>
+                            <!--textarea with green text -->
+
+                            <div class
+                                ="relative w-full mb-3"><label class="block uppercase text-gray-700 text-xs font-bold mb-2"
+                                    for="message">Message</label><textarea rows="4" cols="80" class="px-3 py-3
+                                    placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none
+                                    focus:shadow-outline w-full" placeholder="Type a message..."></textarea></div>
+                            <div class="text-center mt-6">
+                                <button
+                                    class="bg-gray-800 text-white active:bg-gray-700 text-sm font-bold uppercase px-6
+                                    py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+                                    type="button" style="transition: all 0.15s ease 0s;">
+                                    Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            
+    <!-- Footer section in Tailwind CSS with social links -->
+    <div class="bg-gray-800 pt-10 sm:mt-10 pt-10">
+        <div class="max-w-6xl m-auto text-gray-800 flex flex-wrap justify-center">
+            <!-- Col-1 -->
+            <div class="p-5 w-48 ">
+                <div class="text-xs uppercase text-gray-400 font-medium mb-6">
+                    Getting Started
+                </div>
+
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Installation
+                </a>
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Release Notes
+                </a>
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Upgrade Guide
+                </a>
+            </div>
+
+            <!-- Col-2 -->
+            <div class="p-5 w-48 ">
+                <div class="text-xs uppercase text-gray-400 font-medium mb-6">
+                    Core Concepts
+                </div>
+
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Utility-First
+                </a>
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Responsive Design
+                </a>
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Hover, Focus, & Other States
+                </a>
+            </div>
+
+            <!-- Col-3 -->
+            <div class="p-5 w-48 ">
+                <div class="text-xs uppercase text-gray-400 font-medium mb-6">
+                    Customization
+                </div>
+
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Configuration
+                </a>
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium duration-700">
+                    Theme Configuration
+                </a>
+                <a href="#" class="my-3 block text-gray-300 hover:text-gray-100 text-sm font-medium
+                duration-700">
+                    Breakpoints
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- component -->
+<div class="min-h-screen p-6 bg-gray-100 flex items-center justify-center">
+    <div class="container max-w-screen-lg mx-auto">
+      <div>
+        <h2 class="font-semibold text-xl text-gray-600">Responsive Form</h2>
+        <p class="text-gray-500 mb-6">Form is mobile responsive. Give it a try.</p>
+  
+        <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
+          <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3">
+            <div class="text-gray-600">
+              <p class="font-medium text-lg">Personal Details</p>
+              <p>Please fill out all the fields.</p>
+            </div>
+  
+            <div class="lg:col-span-2">
+              <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 md:grid-cols-5">
+                <div class="md:col-span-5">
+                  <label for="full_name">Full Name</label>
+                  <input type="text" name="full_name" id="full_name" class="focus:bg-blue-400 h-10 transition-all duration-300 border mt-1 rounded px-4 w-full bg-gray-50" value="" />
+                </div>
+  
+                <div class="md:col-span-5">
+                  <label for="email">Email Address</label>
+                  <input type="text" name="email" id="email" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="email@domain.com" />
+                </div>
+  
+                <div class="md:col-span-3">
+                  <label for="address">Address / Street</label>
+                  <input type="text" name="address" id="address" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                </div>
+  
+                <div class="md:col-span-2">
+                  <label for="city">City</label>
+                  <input type="text" name="city" id="city" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="" placeholder="" />
+                </div>
+  
+                <div class="md:col-span-2">
+                  <label for="country">Country / region</label>
+                  <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                    <input name="country" id="country" placeholder="Country" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </button>
+                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    </button>
+                  </div>
+                </div>
+  
+                <div class="md:col-span-2">
+                  <label for="state">State / province</label>
+                  <div class="h-10 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                    <input name="state" id="state" placeholder="State" class="px-4 appearance-none outline-none text-gray-800 w-full bg-transparent" value="" />
+                    <button tabindex="-1" class="cursor-pointer outline-none focus:outline-none transition-all text-gray-300 hover:text-red-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </button>
+                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-300 hover:text-blue-600">
+                      <svg class="w-4 h-4 mx-2 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+                    </button>
+                  </div>
+                </div>
+  
+                <div class="md:col-span-1">
+                  <label for="zipcode">Zipcode</label>
+                  <input type="text" name="zipcode" id="zipcode" class="transition-all flex items-center h-10 border mt-1 rounded px-4 w-full bg-gray-50" placeholder="" value="" />
+                </div>
+  
+                <div class="md:col-span-5">
+                  <div class="inline-flex items-center">
+                    <input type="checkbox" name="billing_same" id="billing_same" class="form-checkbox" />
+                    <label for="billing_same" class="ml-2">My billing address is different than above.</label>
+                  </div>
+                </div>
+  
+                <div class="md:col-span-2">
+                  <label for="soda">How many soda pops?</label>
+                  <div class="h-10 w-28 bg-gray-50 flex border border-gray-200 rounded items-center mt-1">
+                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-r border-gray-200 transition-all text-gray-500 hover:text-blue-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                    <input name="soda" id="soda" placeholder="0" class="px-2 text-center appearance-none outline-none text-gray-800 w-full bg-transparent" value="0" />
+                    <button tabindex="-1" for="show_more" class="cursor-pointer outline-none focus:outline-none border-l border-gray-200 transition-all text-gray-500 hover:text-blue-600">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-2 fill-current" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+        
+                <div class="md:col-span-5 text-right">
+                  <div class="inline-flex items-end">
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- div tailwind -->
+      <div class="bg-red-700 hidden fadein px-4 py-2">
+        <h1 class="text-3xl text-center text-gray-100">
+            This would have an effect
+        </h1>
+      </div>
+
+      <button class="btn bg-blue-400 px-4 py-2 text-white text-bold" id="fadein">
+        Show Div
+      </button>
+  
+      <a href="https://www.buymeacoffee.com/dgauderman" target="_blank" class="md:absolute bottom-0 right-0 p-4 float-right">
+        <img src="https://www.buymeacoffee.com/assets/img/guidelines/logo-mark-3.svg" alt="Buy Me A Coffee" class="transition-all rounded-full w-14 -rotate-45 hover:shadow-sm shadow-lg ring hover:ring-4 ring-white">
+      </a>
+    </div>
+  </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Jquery document ready
+        $(document).ready(function () {
+            AOS.init();
+            console.log('This was here..')
+
+            // Jquery onenter
+            $('#menu-button').mouseover(function () {
+                $('.dropdown-menu').show();
+            });
+            $('#menu-button').mouseleave(function () {
+                $('.dropdown-menu').hide();
+            });
+
+            // Jquery fadein
+            $('#fadein').click(function () {
+                $('.fadein').fadeToggle();
+            });
+
+            let toggled = true;
+            // Jquery animate slideIn
+            $('#openSidebar').click(function () {
+                console.log('Called toggled..')
+                $('.sidebar').toggleClass("opened closed", 500);
+            });
+        });
+    </script>
+</body>
+
